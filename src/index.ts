@@ -1,6 +1,7 @@
 import express, { Express, Request, Response } from "express";
 import cors from "cors";
 import mongoose from "mongoose";
+import router from "./routes/finance-record";
 
 const app: Express = express();
 
@@ -12,6 +13,8 @@ const PORT = process.env.PORT || 3001;
 app.get("/", (req: Request, res: Response) => {
   res.send("Welcome");
 });
+
+app.use("/finance-records", router);
 
 const MONGO_URI =
   "mongodb+srv://monasubedi:monasubedi123@cluster0.p7ktlga.mongodb.net/";
