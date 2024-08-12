@@ -21,6 +21,8 @@ router.post("/", async (req: Request, res: Response) => {
     const financeRecordBody = req.body;
     const newRequestBody = new FinancialRecordModel(financeRecordBody);
     const savedRecord = await newRequestBody.save();
+    console.log("record", savedRecord);
+
     if (savedRecord) {
       return res.status(201).send(savedRecord);
     } else {

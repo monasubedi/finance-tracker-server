@@ -14,8 +14,6 @@ app.get("/", (req: Request, res: Response) => {
   res.send("Welcome");
 });
 
-app.use("/finance-records", router);
-
 const MONGO_URI =
   "mongodb+srv://monasubedi:monasubedi123@cluster0.p7ktlga.mongodb.net/";
 
@@ -23,5 +21,7 @@ mongoose
   .connect(MONGO_URI)
   .then(() => console.log("Connected to MONGODB"))
   .catch((e) => console.log("Error in Connecting to MONGODB" + e));
+
+app.use("/finance-records", router);
 
 app.listen(PORT, () => console.log(`Server listening on PORT ${PORT}`));
